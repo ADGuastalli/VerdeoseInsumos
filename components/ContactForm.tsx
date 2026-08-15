@@ -16,13 +16,15 @@ export default function ContactForm() {
     e.preventDefault();
     const body = `Nombre: ${nombre}\nTeléfono: ${telefono || "-"}\n\n${mensaje}`;
     window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(
-      "Consulta desde la web"
+      "Consulta desde la web",
     )}&body=${encodeURIComponent(body)}`;
   }
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h3 style={{ fontWeight: 700, color: "var(--brand-900)", marginBottom: 18 }}>
+      <h3
+        style={{ fontWeight: 700, color: "var(--brand-900)", marginBottom: 18 }}
+      >
         Formulario de contacto
       </h3>
       <div className="form-group">
@@ -76,8 +78,7 @@ export default function ContactForm() {
         <Icon name="send" /> Enviar mensaje
       </button>
       <p className="form-note">
-        Formulario de ejemplo — al pasar a producción se conecta a tu email sin depender de
-        terceros.
+        Al enviar, se abre tu programa de correo con el mensaje ya redactado.
       </p>
     </form>
   );
