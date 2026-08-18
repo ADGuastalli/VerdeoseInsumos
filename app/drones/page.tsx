@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Icon from "@/components/Icon";
-import { waLink } from "@/lib/content";
+import { waLink, SITE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Drones",
@@ -19,7 +19,7 @@ export default function DronesPage() {
         <div className="hero__bg">
           <div className="duotone" style={{ position: "absolute", inset: 0 }}>
             <Image
-              src="https://images.pexels.com/photos/34182367/pexels-photo-34182367.jpeg?auto=compress&cs=tinysrgb&w=1800"
+              src="/images/hero-drone.jpg"
               alt="Mapeo y aplicación con drones"
               fill
               priority
@@ -61,7 +61,10 @@ export default function DronesPage() {
             style={{ transitionDelay: "240ms", marginBottom: 0 }}
           >
             <a
-              href={waLink("Hola, quiero consultar por servicio de Drones")}
+              href={waLink(
+                "Hola, quiero consultar por servicio de Drones",
+                SITE.whatsappNumberDrones,
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-accent"
@@ -88,12 +91,9 @@ export default function DronesPage() {
         <div className="container">
           <div className="drones-product-grid">
             <div className="reveal card-hover service-card">
-              <div
-                className="duotone light ratio ratio-16-10"
-                style={{ borderRadius: 0 }}
-              >
+              <div className=" ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="https://i.postimg.cc/90VCyNqg/dji-mavic-3m-091-541d1e3e5596d8c45716694042408338-640-0.webp"
+                  src="/images/drone_mapeo.webp"
                   alt="Mavic 3 — dron compacto para mapeo aéreo"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -120,7 +120,10 @@ export default function DronesPage() {
                   </li>
                 </ul>
                 <a
-                  href={waLink("Hola, quiero consultar por servicio de Mapeo")}
+                  href={waLink(
+                    "Hola, quiero consultar por servicio de Mapeo",
+                    SITE.whatsappNumberDrones,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
@@ -139,12 +142,9 @@ export default function DronesPage() {
               className="reveal card-hover service-card"
               style={{ transitionDelay: "120ms" }}
             >
-              <div
-                className="duotone light ratio ratio-16-10"
-                style={{ borderRadius: 0 }}
-              >
+              <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="https://images.pexels.com/photos/34182383/pexels-photo-34182383.jpeg?auto=compress&cs=tinysrgb&w=700"
+                  src="/images/dji-t100-campo.jpg"
                   alt="DJI T100 — dron de carga con tanque, para pulverización, fertilización y siembra"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -171,7 +171,10 @@ export default function DronesPage() {
                   </li>
                 </ul>
                 <a
-                  href={waLink("Hola, quiero consultar por servicio de T100")}
+                  href={waLink(
+                    "Hola, quiero consultar por servicio de T100",
+                    SITE.whatsappNumberDrones,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"

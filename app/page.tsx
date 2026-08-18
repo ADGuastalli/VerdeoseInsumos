@@ -12,7 +12,7 @@ export default function InicioPage() {
         <div className="hero__bg">
           <div className="duotone" style={{ position: "absolute", inset: 0 }}>
             <Image
-              src="https://images.pexels.com/photos/34182367/pexels-photo-34182367.jpeg?auto=compress&cs=tinysrgb&w=1800"
+              src="/images/hero-drone.jpg"
               alt="Drone agrícola de carga aplicando sobre el cultivo"
               fill
               priority
@@ -114,11 +114,11 @@ export default function InicioPage() {
               style={{ position: "relative" }}
             >
               <div
-                className="duotone light ratio ratio-4-5"
+                className="duotone ligh ratio ratio-4-5"
                 style={{ boxShadow: "var(--shadow-glow)" }}
               >
                 <Image
-                  src="https://images.unsplash.com/photo-1756512929969-db773ad2a599?w=900&q=80&auto=format&fit=crop"
+                  src="/images/hero-visual-trigo.jpg"
                   alt="Campo de trigo listo para trabajar"
                   fill
                   sizes="(min-width: 1024px) 40vw, 90vw"
@@ -158,12 +158,9 @@ export default function InicioPage() {
 
           <div className="services-grid">
             <div className="reveal card-hover service-card">
-              <div
-                className="duotone light ratio ratio-16-10"
-                style={{ borderRadius: 0 }}
-              >
+              <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1748119814697-4ab8b4a00903?w=700&q=80&auto=format&fit=crop"
+                  src="/images/insumos.jpg"
                   alt="Agroquímicos, semillas y fertilizantes"
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
@@ -189,12 +186,9 @@ export default function InicioPage() {
               className="reveal card-hover service-card"
               style={{ transitionDelay: "120ms" }}
             >
-              <div
-                className="duotone light ratio ratio-16-10"
-                style={{ borderRadius: 0 }}
-              >
+              <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=700&q=80&auto=format&fit=crop"
+                  src="/images/asesoramiento-campo.jpg"
                   alt="Asesoramiento agronómico en campo"
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
@@ -222,12 +216,9 @@ export default function InicioPage() {
               className="reveal card-hover service-card"
               style={{ transitionDelay: "240ms" }}
             >
-              <div
-                className="duotone light ratio ratio-16-10"
-                style={{ borderRadius: 0 }}
-              >
+              <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="https://images.pexels.com/photos/37288738/pexels-photo-37288738.jpeg?auto=compress&cs=tinysrgb&w=700"
+                  src="/images/dji-t100-campo.jpg"
                   alt="DJI T100 aplicando sobre el cultivo"
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"
@@ -275,7 +266,7 @@ export default function InicioPage() {
                   style={{ marginBottom: 20 }}
                 >
                   <Image
-                    src="https://images.unsplash.com/photo-1752245120001-c5831c2735ef?w=500&q=80&auto=format&fit=crop"
+                    src="/images/paso1-whatsapp.jpg"
                     alt="Contacto por WhatsApp"
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
@@ -294,7 +285,7 @@ export default function InicioPage() {
                   style={{ marginBottom: 20 }}
                 >
                   <Image
-                    src="https://images.unsplash.com/photo-1626576842773-576a5b58945a?w=500&q=80&auto=format&fit=crop"
+                    src="/images/paso2-analisis.jpg"
                     alt="Análisis de la situación productiva"
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
@@ -316,7 +307,7 @@ export default function InicioPage() {
                   style={{ marginBottom: 20 }}
                 >
                   <Image
-                    src="https://images.pexels.com/photos/34182313/pexels-photo-34182313.jpeg?auto=compress&cs=tinysrgb&w=500"
+                    src="/images/paso3-aplicacion.jpg"
                     alt="Aplicación con drones en el campo"
                     fill
                     sizes="(min-width: 768px) 33vw, 100vw"
@@ -356,7 +347,7 @@ export default function InicioPage() {
                 className="reveal-scale card-hover crop-card ratio ratio-3-4"
                 style={i > 0 ? { transitionDelay: `${i * 100}ms` } : undefined}
               >
-                <div className="duotone crop-card__img">
+                <div className="">
                   <Image
                     src={crop.image}
                     alt={crop.name}
@@ -383,7 +374,7 @@ export default function InicioPage() {
               style={{ boxShadow: "var(--shadow-soft)" }}
             >
               <Image
-                src="https://images.pexels.com/photos/34182383/pexels-photo-34182383.jpeg?auto=compress&cs=tinysrgb&w=900"
+                src="/images/drones-campo.jpg"
                 alt="DJI T100 en aplicación de precisión, con tanque y brazos de pulverización"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"

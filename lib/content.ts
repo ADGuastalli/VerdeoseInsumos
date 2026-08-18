@@ -8,14 +8,16 @@ export const SITE = {
   url: "https://verdeoseinsumos.com",
   description:
     "Insumos agrícolas, asesoramiento técnico y aplicación con drones en Bahía Blanca y la región.",
-  whatsappNumber: "5492914428412", // con código de país, sin "+" ni espacios (formato wa.me)
-  whatsappDisplay: "+54 9 291 442-8412",
+  whatsappNumber: "5492914428412", // con código de país, sin "+" ni espacios (formato wa.me) — consultas generales
+  // Número aparte para todo lo relacionado al servicio de Drones (botones dentro de /drones
+  // y del panel de Drones en /servicios).
+  whatsappNumberDrones: "5492920447514",
   email: "agrocebolla@gmail.com",
   address: "Bahía Blanca, Buenos Aires",
 };
 
-export function waLink(message: string) {
-  return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
+export function waLink(message: string, number: string = SITE.whatsappNumber) {
+  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
 export type NavItem = {
@@ -42,32 +44,27 @@ export const CROPS: Crop[] = [
   {
     name: "Trigo",
     icon: "wheat",
-    image:
-      "https://images.unsplash.com/photo-1437252611977-07f74518abd7?w=500&q=80&auto=format&fit=crop",
+    image: "/images/cultivo-trigo.jpg",
   },
   {
     name: "Maíz",
     icon: "corn",
-    image:
-      "https://images.unsplash.com/photo-1672881898557-cb4aa814c744?w=500&q=80&auto=format&fit=crop",
+    image: "/images/cultivo-maiz.jpg",
   },
   {
     name: "Cebolla",
     icon: "onion",
-    image:
-      "https://images.unsplash.com/photo-1625426478756-17c70db4e7e6?w=500&q=80&auto=format&fit=crop",
+    image: "/images/cultivo-cebolla.jpg",
   },
   {
     name: "Girasol",
     icon: "sunflower",
-    image:
-      "https://images.unsplash.com/photo-1726486896376-4d1340e2f672?w=500&q=80&auto=format&fit=crop",
+    image: "/images/cultivo-girasol.jpg",
   },
   {
     name: "Cebada",
     icon: "wheat",
-    image:
-      "https://images.unsplash.com/photo-1719557362652-d68caf96df85?w=500&q=80&auto=format&fit=crop",
+    image: "/images/cultivo-cebada.jpg",
   },
 ];
 

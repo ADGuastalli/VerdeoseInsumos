@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/components/Icon";
-import { waLink } from "@/lib/content";
+import { SITE, waLink } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Servicios",
@@ -17,16 +17,31 @@ export default function ServiciosPage() {
         <div className="noise" />
         <div
           className="blob"
-          style={{ width: 380, height: 380, background: "var(--brand-400)", top: -100, right: -60 }}
+          style={{
+            width: 380,
+            height: 380,
+            background: "var(--brand-400)",
+            top: -100,
+            right: -60,
+          }}
         />
         <div className="container">
           <div className="reveal eyebrow">NUESTROS SERVICIOS</div>
-          <h1 className="reveal hero__title" style={{ transitionDelay: "80ms", fontSize: "clamp(2rem,4vw,2.8rem)" }}>
+          <h1
+            className="reveal hero__title"
+            style={{
+              transitionDelay: "80ms",
+              fontSize: "clamp(2rem,4vw,2.8rem)",
+            }}
+          >
             Todo lo que tu campo necesita, en un solo lugar
           </h1>
-          <p className="reveal hero__subtitle" style={{ transitionDelay: "140ms", maxWidth: 600 }}>
-            Insumos, asesoramiento y aplicación con drones — los tres pilares de Verdeos,
-            explicados en detalle.
+          <p
+            className="reveal hero__subtitle"
+            style={{ transitionDelay: "140ms", maxWidth: 600 }}
+          >
+            Insumos, asesoramiento y aplicación con drones — los tres pilares de
+            Verdeos, explicados en detalle.
           </p>
         </div>
       </div>
@@ -39,10 +54,12 @@ export default function ServiciosPage() {
               <div className="eyebrow">01 · INSUMOS AGRÍCOLAS</div>
               <h2 className="feature-panel__title">Insumos agrícolas</h2>
               <p className="feature-panel__lead">
-                Comercializamos agroquímicos, semillas y fertilizantes de primeras marcas, con
-                disponibilidad y respaldo técnico.
+                Comercializamos agroquímicos, semillas y fertilizantes de
+                primeras marcas, con disponibilidad y respaldo técnico.
               </p>
-              <div className="feature-panel__focus">Trabajamos con foco en:</div>
+              <div className="feature-panel__focus">
+                Trabajamos con foco en:
+              </div>
               <ul className="check-list">
                 <li>
                   <Icon name="check" /> Correcta elección de productos
@@ -55,10 +72,14 @@ export default function ServiciosPage() {
                 </li>
               </ul>
               <p className="feature-panel__closing">
-                Nuestro objetivo es que cada insumo tenga sentido dentro del sistema productivo.
+                Nuestro objetivo es que cada insumo tenga sentido dentro del
+                sistema productivo.
               </p>
               <a
-                href={waLink("Hola, quiero consultar por insumos")}
+                href={waLink(
+                  "Hola, quiero consultar por insumos",
+                  SITE.whatsappNumber,
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -68,7 +89,7 @@ export default function ServiciosPage() {
             </div>
             <div className="feature-panel__media" style={{ order: 2 }}>
               <Image
-                src="https://images.unsplash.com/photo-1748119814697-4ab8b4a00903?w=900&q=80&auto=format&fit=crop"
+                src="/images/insumos.jpg"
                 alt="Insumos agrícolas: agroquímicos, semillas y fertilizantes"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -77,10 +98,13 @@ export default function ServiciosPage() {
           </div>
 
           {/* ASESORAMIENTO */}
-          <div className="feature-panel reveal" style={{ transitionDelay: "100ms" }}>
+          <div
+            className="feature-panel reveal"
+            style={{ transitionDelay: "100ms" }}
+          >
             <div className="feature-panel__media" style={{ order: 1 }}>
               <Image
-                src="https://images.unsplash.com/photo-1752245120001-c5831c2735ef?w=900&q=80&auto=format&fit=crop"
+                src="/images/paso1-whatsapp.jpg"
                 alt="Asesoramiento agronómico en campo"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -90,13 +114,14 @@ export default function ServiciosPage() {
               <div className="eyebrow">02 · ASESORAMIENTO AGRONÓMICO</div>
               <h2 className="feature-panel__title">Asesoramiento agronómico</h2>
               <p className="feature-panel__lead">
-                Brindamos asesoramiento técnico adaptado a cada cultivo, ambiente y objetivo
-                productivo.
+                Brindamos asesoramiento técnico adaptado a cada cultivo,
+                ambiente y objetivo productivo.
               </p>
               <div className="feature-panel__focus">Nos especializamos en:</div>
               <ul className="check-list">
                 <li>
-                  <Icon name="check" /> Cultivo de cebolla, trigo, maíz, girasol y cebada
+                  <Icon name="check" /> Cultivo de cebolla, trigo, maíz, girasol
+                  y cebada
                 </li>
                 <li>
                   <Icon name="check" /> Orden de agregado al tanque y mezclas
@@ -106,10 +131,14 @@ export default function ServiciosPage() {
                 </li>
               </ul>
               <p className="feature-panel__closing">
-                Buscamos decisiones simples, eficientes y sustentables en el tiempo.
+                Buscamos decisiones simples, eficientes y sustentables en el
+                tiempo.
               </p>
               <a
-                href={waLink("Hola, quiero consultar por asesoramiento")}
+                href={waLink(
+                  "Hola, quiero consultar por asesoramiento",
+                  SITE.whatsappNumber,
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -120,15 +149,20 @@ export default function ServiciosPage() {
           </div>
 
           {/* DRONES */}
-          <div className="feature-panel reveal" style={{ transitionDelay: "200ms", marginBottom: 0 }}>
+          <div
+            className="feature-panel reveal"
+            style={{ transitionDelay: "200ms", marginBottom: 0 }}
+          >
             <div className="feature-panel__body" style={{ order: 1 }}>
               <div className="eyebrow">03 · APLICACIÓN CON DRONES</div>
               <h2 className="feature-panel__title">Aplicación con drones</h2>
               <p className="feature-panel__lead">
-                Nuevo servicio de pulverización, fertilización, siembra y mapeo con dron T100 y
-                Mavic 3.
+                Nuevo servicio de pulverización, fertilización, siembra y mapeo
+                con dron T100 y Mavic 3.
               </p>
-              <div className="feature-panel__focus">Este servicio es ideal para:</div>
+              <div className="feature-panel__focus">
+                Este servicio es ideal para:
+              </div>
               <ul className="check-list">
                 <li>
                   <Icon name="check" /> Lotes difíciles
@@ -137,28 +171,37 @@ export default function ServiciosPage() {
                   <Icon name="check" /> Aplicaciones dirigidas
                 </li>
                 <li>
-                  <Icon name="check" /> Situaciones donde la maquinaria tradicional no es
-                  eficiente
+                  <Icon name="check" /> Situaciones donde la maquinaria
+                  tradicional no es eficiente
                 </li>
               </ul>
-              <p className="feature-panel__closing">Tecnología aplicada al campo, con criterio técnico.</p>
+              <p className="feature-panel__closing">
+                Tecnología aplicada al campo, con criterio técnico.
+              </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 14 }}>
                 <a
-                  href={waLink("Hola, quiero consultar por servicio de Drones")}
+                  href={waLink(
+                    "Hola, quiero consultar por servicio de Drones",
+                    SITE.whatsappNumberDrones,
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
                 >
                   <Icon name="whatsapp" /> Consultar por WhatsApp
                 </a>
-                <Link href="/drones" className="btn btn-ghost" style={{ color: "var(--brand-600)" }}>
+                <Link
+                  href="/drones"
+                  className="btn btn-ghost"
+                  style={{ color: "var(--brand-600)" }}
+                >
                   Ver página de Drones <Icon name="arrowRight" />
                 </Link>
               </div>
             </div>
             <div className="feature-panel__media" style={{ order: 2 }}>
               <Image
-                src="https://images.pexels.com/photos/37288742/pexels-photo-37288742.jpeg?auto=compress&cs=tinysrgb&w=900"
+                src="/images/drones-servicio.jpg"
                 alt="Drone agrícola DJI T100 dispersando sobre el cultivo"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
