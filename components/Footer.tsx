@@ -45,7 +45,11 @@ export default function Footer() {
               >
                 <Icon name="whatsapp" bare />
               </a>
-              <a href={`mailto:${SITE.email}`} className="social-btn" aria-label="Email">
+              <a
+                href={`mailto:${SITE.email}`}
+                className="social-btn"
+                aria-label="Email"
+              >
                 <Icon name="mail" bare />
               </a>
             </div>
@@ -63,8 +67,12 @@ export default function Footer() {
           <div>
             <h4>Contacto</h4>
             <div className="footer__col">
-              <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer">
-                {SITE.whatsappDisplay}
+              <a
+                href={SOCIAL_LINKS.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {SITE.whatsappNumber}
               </a>
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               <span>{SITE.address}</span>
