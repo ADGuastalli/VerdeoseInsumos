@@ -11,14 +11,25 @@ export default function InicioPage() {
       <section id="inicio" className="hero">
         <div className="hero__bg">
           <div className="duotone" style={{ position: "absolute", inset: 0 }}>
-            <Image
-              src="/images/hero-drone.jpg"
-              alt="Drone agrícola de carga aplicando sobre el cultivo"
-              fill
-              priority
-              sizes="100vw"
-              style={{ objectFit: "cover" }}
-            />
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/images/hero-drone.jpg"
+              aria-label="Drone agrícola de carga aplicando sobre el cultivo"
+              style={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            >
+              <source src="/videos/hero-drone-alt2.webm" type="video/webm" />
+              <source src="/videos/hero-drone-alt2.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="noise" />
           <div
