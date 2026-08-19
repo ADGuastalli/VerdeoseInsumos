@@ -396,7 +396,7 @@ export default function DronesPage() {
                   <Icon name="whatsapp" /> Consultar por el T100
                 </a>
                 <VideoModal
-                  src="/videos/instructivo-t100.mp4"
+                  src="/videos/video-instructivo-t100.mp4"
                   poster="/images/dji-t100-oficial.jpg"
                   title="Video instructivo — DJI T100"
                   className="btn btn-ghost"
