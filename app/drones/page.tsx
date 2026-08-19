@@ -37,6 +37,39 @@ const T100_SPECS = [
   },
 ];
 
+const MAVIC3_SPECS = [
+  {
+    icon: "target" as const,
+    title: "20 MP + multiespectral",
+    text: "Cámara RGB de 20MP y 4 cámaras multiespectrales (G/R/RE/NIR)",
+  },
+  {
+    icon: "clock" as const,
+    title: "Hasta 42 min de vuelo",
+    text: "Cubre más de 2 km² de lote en un solo vuelo",
+  },
+  {
+    icon: "leaf" as const,
+    title: "Índices de vegetación",
+    text: "NDVI, GNDVI, NDRE, LCI y OSAVI en tiempo real",
+  },
+  {
+    icon: "mapPin" as const,
+    title: "Precisión RTK",
+    text: "Mapeo de nivel centimétrico, sin puntos de control en tierra",
+  },
+  {
+    icon: "shield" as const,
+    title: "Detección de obstáculos",
+    text: "Sensores en todas las direcciones y regreso automático seguro",
+  },
+  {
+    icon: "send" as const,
+    title: "Largo alcance",
+    text: "Transmisión O3 de hasta 15 km",
+  },
+];
+
 export const metadata: Metadata = {
   title: "Drones",
   description:
@@ -130,7 +163,7 @@ export default function DronesPage() {
                 style={{ borderRadius: 0 }}
               >
                 <Image
-                  src="/images/drones-detalle.jpg"
+                  src="/images/dji-mavic3-oficial.jpg"
                   alt="Mavic 3 — dron compacto para mapeo aéreo"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -184,7 +217,7 @@ export default function DronesPage() {
                 style={{ borderRadius: 0 }}
               >
                 <Image
-                  src="/images/hero-drone-t100-poster.jpg"
+                  src="/images/dji-t100-oficial.jpg"
                   alt="DJI T100 — dron de carga con tanque, para pulverización, fertilización y siembra"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -225,6 +258,75 @@ export default function DronesPage() {
                   }}
                 >
                   <Icon name="whatsapp" /> Consultar aplicación
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="section--tight"
+        style={{
+          background: "var(--brand-100)",
+          textAlign: "center",
+          paddingBottom: 0,
+        }}
+      >
+        <div className="container">
+          <h2 className="reveal section-title">
+            Ficha técnica del Mavic 3 Multiespectral
+          </h2>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <div className="specs-panel reveal" style={{ marginBottom: 28 }}>
+            <div className="specs-panel__media" style={{ order: 2 }}>
+              <Image
+                src="/images/dji-mavic3-oficial.jpg"
+                alt="DJI Mavic 3 Multiespectral — foto oficial DJI Agriculture"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="specs-panel__body" style={{ order: 1 }}>
+              <div className="eyebrow">DJI MAVIC 3 MULTISPECTRAL</div>
+              <h3 className="feature-panel__title">
+                Ve más, trabajá más inteligente
+              </h3>
+              <div className="specs-grid">
+                {MAVIC3_SPECS.map((spec) => (
+                  <div className="spec-item" key={spec.title}>
+                    <div className="icon-circle">
+                      <Icon name={spec.icon} bare />
+                    </div>
+                    <div>
+                      <strong>{spec.title}</strong>
+                      <span>{spec.text}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 14,
+                  marginTop: 28,
+                }}
+              >
+                <a
+                  href={waLink(
+                    "Hola, quiero consultar por servicio de Mapeo",
+                    SITE.whatsappNumberDrones,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  <Icon name="whatsapp" /> Consultar por el Mavic 3
                 </a>
               </div>
             </div>
@@ -294,7 +396,7 @@ export default function DronesPage() {
                   <Icon name="whatsapp" /> Consultar por el T100
                 </a>
                 <VideoModal
-                  src="/videos/video-instructivo-t100.mp4"
+                  src="/videos/instructivo-t100.mp4"
                   poster="/images/dji-t100-oficial.jpg"
                   title="Video instructivo — DJI T100"
                   className="btn btn-ghost"
