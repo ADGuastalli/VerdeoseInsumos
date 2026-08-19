@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
-// Next.js procesa esta hoja global, aunque TypeScript no tenga declaraciones CSS.
-// @ts-expect-error -- importación de estilos globales gestionada por Next.js.
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
