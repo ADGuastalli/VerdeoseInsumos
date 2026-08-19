@@ -104,7 +104,7 @@ export default function ServiciosPage() {
           >
             <div className="feature-panel__media" style={{ order: 1 }}>
               <Image
-                src="/images/paso1-whatsapp.jpg"
+                src="/images/asesoramiento-campo.jpg"
                 alt="Asesoramiento agronómico en campo"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
@@ -201,7 +201,7 @@ export default function ServiciosPage() {
             </div>
             <div className="feature-panel__media" style={{ order: 2 }}>
               <Image
-                src="/images/drones-servicio.jpg"
+                src="/images/dji-t100-oficial.jpg"
                 alt="Drone agrícola DJI T100 dispersando sobre el cultivo"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
