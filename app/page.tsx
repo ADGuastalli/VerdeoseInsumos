@@ -17,7 +17,7 @@ export default function InicioPage() {
               loop
               playsInline
               preload="auto"
-              poster="/images/hero-drone.jpg"
+              poster="/images/hero-drone-t100-poster.jpg"
               aria-label="Drone agrícola de carga aplicando sobre el cultivo"
               style={{
                 position: "absolute",
@@ -27,8 +27,8 @@ export default function InicioPage() {
                 objectFit: "cover",
               }}
             >
-              <source src="/videos/hero-drone-alt2.webm" type="video/webm" />
-              <source src="/videos/hero-drone-alt2.mp4" type="video/mp4" />
+              <source src="/videos/hero-drone-t100.webm" type="video/webm" />
+              <source src="/videos/hero-drone-t100.mp4" type="video/mp4" />
             </video>
           </div>
           <div className="noise" />
@@ -239,7 +239,7 @@ export default function InicioPage() {
             >
               <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
                 <Image
-                  src="/images/dji-t100-campo.jpg"
+                  src="/images/dji-t100-oficial.jpg"
                   alt="DJI T100 aplicando sobre el cultivo"
                   fill
                   sizes="(min-width: 768px) 33vw, 100vw"

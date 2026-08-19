@@ -37,6 +37,7 @@ const PATHS: Record<string, string> = {
   phone:
     '<path d="M4.5 4.5c0-1 .8-1.8 1.8-1.8h1.6l1.8 4.4-1.8 1.8c1 2.6 3 4.6 5.6 5.6l1.8-1.8 4.4 1.8v1.6c0 1-.8 1.8-1.8 1.8C9.8 18 4.5 12.7 4.5 4.5z"/>',
   send: '<path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>',
+  play: '<circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5v-7z" fill="currentColor" stroke="none"/>',
 };
 
 export type IconName = keyof typeof PATHS;

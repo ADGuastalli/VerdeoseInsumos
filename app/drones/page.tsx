@@ -1,7 +1,41 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Icon from "@/components/Icon";
-import { waLink, SITE } from "@/lib/content";
+import VideoModal from "@/components/VideoModal";
+import { SITE, waLink } from "@/lib/content";
+
+const T100_SPECS = [
+  {
+    icon: "droplet" as const,
+    title: "100 L",
+    text: "Pulverización de alto volumen y eficiencia",
+  },
+  {
+    icon: "target" as const,
+    title: "100 KG",
+    text: "Gran capacidad de esparcimiento de sólidos",
+  },
+  {
+    icon: "shield" as const,
+    title: "Seguridad líder",
+    text: "Sistema de seguridad líder en la industria",
+  },
+  {
+    icon: "clipboard" as const,
+    title: "100 KG",
+    text: "Tu asistente de transporte a campo",
+  },
+  {
+    icon: "clock" as const,
+    title: "Carga rápida",
+    text: "Económica y de ahorro de energía",
+  },
+  {
+    icon: "send" as const,
+    title: "Señal fuerte",
+    text: "Sin miedo a obstrucciones en el lote",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Drones",
@@ -91,9 +125,12 @@ export default function DronesPage() {
         <div className="container">
           <div className="drones-product-grid">
             <div className="reveal card-hover service-card">
-              <div className=" ratio ratio-16-10" style={{ borderRadius: 0 }}>
+              <div
+                className="duotone light ratio ratio-16-10"
+                style={{ borderRadius: 0 }}
+              >
                 <Image
-                  src="/images/drone_mapeo.webp"
+                  src="/images/drones-detalle.jpg"
                   alt="Mavic 3 — dron compacto para mapeo aéreo"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -142,9 +179,12 @@ export default function DronesPage() {
               className="reveal card-hover service-card"
               style={{ transitionDelay: "120ms" }}
             >
-              <div className="ratio ratio-16-10" style={{ borderRadius: 0 }}>
+              <div
+                className="duotone light ratio ratio-16-10"
+                style={{ borderRadius: 0 }}
+              >
                 <Image
-                  src="/images/dji-t100-campo.jpg"
+                  src="/images/hero-drone-t100-poster.jpg"
                   alt="DJI T100 — dron de carga con tanque, para pulverización, fertilización y siembra"
                   fill
                   sizes="(min-width: 768px) 45vw, 100vw"
@@ -186,6 +226,82 @@ export default function DronesPage() {
                 >
                   <Icon name="whatsapp" /> Consultar aplicación
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="section--tight"
+        style={{
+          background: "var(--brand-100)",
+          textAlign: "center",
+          paddingBottom: 0,
+        }}
+      >
+        <div className="container">
+          <h2 className="reveal section-title">Ficha técnica del DJI T100</h2>
+        </div>
+      </section>
+      <section className="section">
+        <div className="container">
+          <div className="specs-panel reveal">
+            <div className="specs-panel__media">
+              <Image
+                src="/images/dji-t100-oficial.jpg"
+                alt="DJI Agras T100 aplicando en el campo — foto oficial DJI Agriculture"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <div className="specs-panel__body">
+              <div className="eyebrow">DJI AGRAS T100</div>
+              <h3 className="feature-panel__title">
+                Máxima capacidad, máximo rendimiento
+              </h3>
+              <div className="specs-grid">
+                {T100_SPECS.map((spec) => (
+                  <div className="spec-item" key={spec.title}>
+                    <div className="icon-circle">
+                      <Icon name={spec.icon} bare />
+                    </div>
+                    <div>
+                      <strong>{spec.title}</strong>
+                      <span>{spec.text}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 14,
+                  marginTop: 28,
+                }}
+              >
+                <a
+                  href={waLink(
+                    "Hola, quiero consultar por servicio de T100",
+                    SITE.whatsappNumberDrones,
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                >
+                  <Icon name="whatsapp" /> Consultar por el T100
+                </a>
+                <VideoModal
+                  src="/videos/video-instructivo-t100.mp4"
+                  poster="/images/dji-t100-oficial.jpg"
+                  title="Video instructivo — DJI T100"
+                  className="btn btn-ghost"
+                  style={{ color: "var(--brand-600)" }}
+                >
+                  Ver video instructivo
+                </VideoModal>
               </div>
             </div>
           </div>

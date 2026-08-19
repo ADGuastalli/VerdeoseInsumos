@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
+// Next.js procesa esta hoja global, aunque TypeScript no tenga declaraciones CSS.
+// @ts-expect-error -- importación de estilos globales gestionada por Next.js.
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -76,7 +78,9 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildStructuredData()) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildStructuredData()),
+          }}
         />
         <Header />
         {children}
