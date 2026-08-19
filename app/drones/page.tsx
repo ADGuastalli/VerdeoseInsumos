@@ -189,22 +189,6 @@ export default function DronesPage() {
                     <Icon name="check" /> Seguimiento de la evolución del lote
                   </li>
                 </ul>
-                <a
-                  href={waLink(
-                    "Hola, quiero consultar por servicio de Mapeo",
-                    SITE.whatsappNumberDrones,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{
-                    width: "100%",
-                    justifyContent: "center",
-                    marginTop: 8,
-                  }}
-                >
-                  <Icon name="whatsapp" /> Consultar relevamiento
-                </a>
               </div>
             </div>
 
@@ -243,22 +227,6 @@ export default function DronesPage() {
                     <Icon name="check" /> Siembra
                   </li>
                 </ul>
-                <a
-                  href={waLink(
-                    "Hola, quiero consultar por servicio de T100",
-                    SITE.whatsappNumberDrones,
-                  )}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary"
-                  style={{
-                    width: "100%",
-                    justifyContent: "center",
-                    marginTop: 8,
-                  }}
-                >
-                  <Icon name="whatsapp" /> Consultar aplicación
-                </a>
               </div>
             </div>
           </div>
@@ -319,7 +287,7 @@ export default function DronesPage() {
               >
                 <a
                   href={waLink(
-                    "Hola, quiero consultar por servicio de Mapeo",
+                    "Hola, quiero consultar por servicio de Mapeo con el Mavic 3",
                     SITE.whatsappNumberDrones,
                   )}
                   target="_blank"
@@ -386,7 +354,7 @@ export default function DronesPage() {
               >
                 <a
                   href={waLink(
-                    "Hola, quiero consultar por servicio de T100",
+                    "Hola, quiero consultar por servicio de T100 para mi campo",
                     SITE.whatsappNumberDrones,
                   )}
                   target="_blank"
