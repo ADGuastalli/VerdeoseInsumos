@@ -19,9 +19,11 @@ export default function ScrollEffects() {
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" },
     );
-    document.querySelectorAll(".reveal, .reveal-scale").forEach((el) => revealIo.observe(el));
+    document
+      .querySelectorAll(".reveal, .reveal-scale")
+      .forEach((el) => revealIo.observe(el));
 
     const counterIo = new IntersectionObserver(
       (entries) => {
@@ -29,6 +31,7 @@ export default function ScrollEffects() {
           if (!entry.isIntersecting) return;
           const el = entry.target as HTMLElement;
           const target = Number(el.dataset.target);
+          const suffix = el.dataset.suffix || "";
           let cur = 0;
           const step = Math.max(1, Math.round(target / 30));
           const t = setInterval(() => {
@@ -37,14 +40,16 @@ export default function ScrollEffects() {
               cur = target;
               clearInterval(t);
             }
-            el.textContent = String(cur);
+            el.textContent = String(cur) + (cur === target ? suffix : "");
           }, 40);
           counterIo.unobserve(el);
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
-    document.querySelectorAll(".counter").forEach((el) => counterIo.observe(el));
+    document
+      .querySelectorAll(".counter")
+      .forEach((el) => counterIo.observe(el));
 
     return () => {
       revealIo.disconnect();

@@ -99,6 +99,16 @@ export default function InicioPage() {
               style={{ transitionDelay: "320ms" }}
             >
               <div>
+                <div
+                  className="stat-num counter"
+                  data-target={25}
+                  data-suffix="+"
+                >
+                  0
+                </div>
+                <div className="stat-label">Años de trayectoria</div>
+              </div>
+              <div>
                 <div className="stat-num counter" data-target={4}>
                   0
                 </div>
@@ -125,7 +135,7 @@ export default function InicioPage() {
               style={{ position: "relative" }}
             >
               <div
-                className="duotone ligh ratio ratio-4-5"
+                className="duotone light ratio ratio-4-5"
                 style={{ boxShadow: "var(--shadow-glow)" }}
               >
                 <Image
