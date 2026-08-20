@@ -138,8 +138,21 @@ export default function InicioPage() {
                 className="duotone light ratio ratio-4-5"
                 style={{ boxShadow: "var(--shadow-glow)" }}
               >
+                <span
+                  className="badge"
+                  style={{
+                    position: "absolute",
+                    top: 16,
+                    left: 16,
+                    zIndex: 2,
+                    background: "var(--brand-100)",
+                    color: "var(--brand-600)",
+                  }}
+                >
+                  CASA CENTRAL
+                </span>
                 <Image
-                  src="/images/hero-visual-trigo.jpg"
+                  src="/fotos/local-bahia-blanca.jpg"
                   alt="Campo de trigo listo para trabajar"
                   fill
                   sizes="(min-width: 1024px) 40vw, 90vw"
@@ -148,11 +161,11 @@ export default function InicioPage() {
               </div>
               <div className="hero__float-card">
                 <span className="icon-circle sm" style={{ marginBottom: 0 }}>
-                  <Icon name="target" bare />
+                  <Icon name="mapPin" bare />
                 </span>
                 <div>
-                  <strong>Aplicación de precisión</strong>
-                  <small>Cobertura pareja, menos deriva</small>
+                  <strong>Siempre cerca del productor</strong>
+                  <small>en toda la región</small>
                 </div>
               </div>
             </div>
@@ -523,37 +536,6 @@ export default function InicioPage() {
             >
               Sucursales y asociados en la región
             </h2>
-          </div>
-
-          <div
-            className="reveal ratio card-hover"
-            style={{
-              maxWidth: 640,
-              margin: "0 auto 48px",
-              aspectRatio: "16/10",
-              position: "relative",
-            }}
-          >
-            <span
-              className="badge"
-              style={{
-                position: "absolute",
-                top: 16,
-                left: 16,
-                zIndex: 2,
-                background: "var(--brand-100)",
-                color: "var(--brand-600)",
-              }}
-            >
-              CASA CENTRAL
-            </span>
-            <Image
-              src="/fotos/local-bahia-blanca.jpg"
-              alt="Local de Verdeos e Insumos Agropecuarios en Bahía Blanca"
-              fill
-              sizes="(max-width: 768px) 100vw, 640px"
-              style={{ objectFit: "cover" }}
-            />
           </div>
 
           <div className="branches-grid">
