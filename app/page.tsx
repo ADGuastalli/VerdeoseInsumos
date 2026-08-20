@@ -538,6 +538,37 @@ export default function InicioPage() {
             </h2>
           </div>
 
+          <div
+            className="reveal ratio card-hover mobile-only"
+            style={{
+              maxWidth: 640,
+              margin: "0 auto 48px",
+              aspectRatio: "16/10",
+              position: "relative",
+            }}
+          >
+            <span
+              className="badge"
+              style={{
+                position: "absolute",
+                top: 16,
+                left: 16,
+                zIndex: 2,
+                background: "var(--brand-100)",
+                color: "var(--brand-600)",
+              }}
+            >
+              CASA CENTRAL
+            </span>
+            <Image
+              src="/fotos/local-bahia-blanca.jpg"
+              alt="Local de Verdeos e Insumos Agropecuarios en Bahía Blanca"
+              fill
+              sizes="(max-width: 768px) 100vw, 640px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+
           <div className="branches-grid">
             {BRANCHES.map((branch, i) => (
               <div
@@ -545,9 +576,6 @@ export default function InicioPage() {
                 className="reveal branch-card"
                 style={i > 0 ? { transitionDelay: `${i * 100}ms` } : undefined}
               >
-                <div className="icon-circle">
-                  <Icon name="mapPin" bare />
-                </div>
                 {branch.badge && (
                   <span
                     className="badge"
@@ -561,6 +589,9 @@ export default function InicioPage() {
                     {branch.badge}
                   </span>
                 )}
+                <div className="icon-circle">
+                  <Icon name="mapPin" bare />
+                </div>
                 <h3>{branch.name}</h3>
                 <div className="sub">{branch.company}</div>
                 <p className="addr">{branch.address}</p>

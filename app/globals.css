@@ -929,6 +929,15 @@ section {
 }
 
 /* ============ SUCURSALES ============ */
+
+.mobile-only {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .mobile-only {
+    display: none;
+  }
+}
 .branches-grid {
   display: grid;
   gap: 22px;
