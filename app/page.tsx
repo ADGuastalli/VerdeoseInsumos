@@ -545,6 +545,9 @@ export default function InicioPage() {
                 className="reveal branch-card"
                 style={i > 0 ? { transitionDelay: `${i * 100}ms` } : undefined}
               >
+                <div className="icon-circle">
+                  <Icon name="mapPin" bare />
+                </div>
                 {branch.badge && (
                   <span
                     className="badge"
@@ -558,9 +561,6 @@ export default function InicioPage() {
                     {branch.badge}
                   </span>
                 )}
-                <div className="icon-circle">
-                  <Icon name="mapPin" bare />
-                </div>
                 <h3>{branch.name}</h3>
                 <div className="sub">{branch.company}</div>
                 <p className="addr">{branch.address}</p>
