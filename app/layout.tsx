@@ -7,6 +7,7 @@ import WhatsAppFab from "@/components/WhatsAppFab";
 import BackToTop from "@/components/BackToTop";
 import ScrollEffects from "@/components/ScrollEffects";
 import { BRANCHES, SITE } from "@/lib/content";
+import { Analytics } from "@vercel/analytics/next";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -86,6 +87,7 @@ export default function RootLayout({
         <WhatsAppFab />
         <BackToTop />
         <ScrollEffects />
+        <Analytics />
       </body>
     </html>
   );
