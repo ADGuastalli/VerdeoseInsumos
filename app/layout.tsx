@@ -83,11 +83,11 @@ export default function RootLayout({
         />
         <Header />
         {children}
+        <Analytics />
         <Footer />
         <WhatsAppFab />
         <BackToTop />
         <ScrollEffects />
-        <Analytics />
       </body>
     </html>
   );
