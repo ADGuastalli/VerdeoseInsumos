@@ -101,7 +101,7 @@ export default function InicioPage() {
               <div>
                 <div
                   className="stat-num counter"
-                  data-target={25}
+                  data-target={30}
                   data-suffix="+"
                 >
                   0

@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
             <p className="desc">{SITE.description}</p>
             <p className="desc" style={{ fontWeight: 600, opacity: 0.85 }}>
-              Más de 25 años acompañando al productor de la región.
+              Más de 30 años acompañando al productor de la región.
             </p>
             <div className="footer__social">
               <a
