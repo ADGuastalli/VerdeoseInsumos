@@ -114,8 +114,9 @@ export default function ServiciosPage() {
               <div className="eyebrow">02 · ASESORAMIENTO AGRONÓMICO</div>
               <h2 className="feature-panel__title">Asesoramiento agronómico</h2>
               <p className="feature-panel__lead">
-                Brindamos asesoramiento técnico adaptado a cada cultivo,
-                ambiente y objetivo productivo.
+                Con más de 30 años de trayectoria en el rubro, brindamos
+                asesoramiento técnico adaptado a cada cultivo, ambiente y
+                objetivo productivo.
               </p>
               <div className="feature-panel__focus">Nos especializamos en:</div>
               <ul className="check-list">
