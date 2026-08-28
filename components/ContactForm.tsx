@@ -11,7 +11,7 @@ import Icon from "./Icon";
 // 1. Entrar a https://web3forms.com con agrocebolla@gmail.com
 // 2. Crear un "Access Key" gratis (queda asociado a ese mail: ahí llegan los envíos)
 // 3. Copiar la key y pegarla en .env.local como:
-//      NEXT_PUBLIC_WEB3FORMS_KEY=tu-key-aca
+//      NEXT_WEB3FORMS_KEY=tu-key-aca
 //    (y agregar la misma variable en Vercel/donde despliegues, en Settings > Environment Variables)
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
@@ -28,12 +28,10 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    const accessKey = process.env.NEXT_WEB3FORMS_KEY;
     if (!accessKey) {
       // Falta configurar la access key — ver instrucciones arriba.
-      console.error(
-        "Falta NEXT_PUBLIC_WEB3FORMS_KEY en las variables de entorno.",
-      );
+      console.error("Falta NEXT_WEB3FORMS_KEY en las variables de entorno.");
       setStatus("error");
       return;
     }
