@@ -295,10 +295,7 @@ export default function InicioPage() {
             <div className="process-grid">
               <div className="reveal">
                 <div className="step-number">1</div>
-                <div
-                  className="duotone light ratio ratio-4-3"
-                  style={{ marginBottom: 20 }}
-                >
+                <div className="ratio ratio-4-3" style={{ marginBottom: 20 }}>
                   <Image
                     src="/images/paso1-whatsapp.jpg"
                     alt="Contacto por WhatsApp"
@@ -314,10 +311,7 @@ export default function InicioPage() {
               </div>
               <div className="reveal" style={{ transitionDelay: "140ms" }}>
                 <div className="step-number">2</div>
-                <div
-                  className="duotone light ratio ratio-4-3"
-                  style={{ marginBottom: 20 }}
-                >
+                <div className="ratio ratio-4-3" style={{ marginBottom: 20 }}>
                   <Image
                     src="/images/paso2-analisis.jpg"
                     alt="Análisis de la situación productiva"
@@ -336,10 +330,7 @@ export default function InicioPage() {
               </div>
               <div className="reveal" style={{ transitionDelay: "280ms" }}>
                 <div className="step-number">3</div>
-                <div
-                  className="duotone light ratio ratio-4-3"
-                  style={{ marginBottom: 20 }}
-                >
+                <div className="ratio ratio-4-3" style={{ marginBottom: 20 }}>
                   <Image
                     src="/images/paso3-aplicacion.jpg"
                     alt="Aplicación con drones en el campo"
