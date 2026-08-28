@@ -28,7 +28,7 @@ export default function ContactForm() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    const accessKey = process.env.NEXT_WEB3FORMS_KEY;
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
     if (!accessKey) {
       // Falta configurar la access key — ver instrucciones arriba.
       console.error("Falta NEXT_WEB3FORMS_KEY en las variables de entorno.");
