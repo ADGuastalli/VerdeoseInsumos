@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
   if (!accessKey) {
     console.error(
-      "Falta NEXT_PUBLIC_WEB3FORMS_KEY en las variables de entorno del servidor.",
+      "Falta WEB3FORMS_KEY en las variables de entorno del servidor.",
     );
     return NextResponse.json(
       { success: false, message: "Configuración incompleta del servidor." },
@@ -49,7 +49,13 @@ export async function POST(req: Request) {
   try {
     const res = await fetch(WEB3FORMS_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        // Web3Forms (detrás de Cloudflare) puede devolver una página HTML de
+        // bloqueo en vez de JSON si el pedido no lleva estos headers.
+        Accept: "application/json",
+        "User-Agent": "verdeoseinsumos-contact-form/1.0",
+      },
       body: JSON.stringify({
         access_key: accessKey,
         to: DESTINATION_EMAIL,
@@ -61,9 +67,29 @@ export async function POST(req: Request) {
       }),
     });
 
-    const data = await res.json();
+    // Leemos como texto primero: si Web3Forms devuelve HTML (bloqueo, error
+    // 5xx propio, etc.) esto evita que un JSON.parse mate la función sin
+    // dejar rastro de qué vino realmente en la respuesta.
+    const rawText = await res.text();
+    let data: { success?: boolean; message?: string } | null = null;
+    try {
+      data = JSON.parse(rawText);
+    } catch {
+      console.error(
+        `Web3Forms devolvió una respuesta no-JSON (status ${res.status}):`,
+        rawText.slice(0, 500),
+      );
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Respuesta inesperada del servicio de email.",
+        },
+        { status: 502 },
+      );
+    }
 
-    if (!data.success) {
+    if (!res.ok || !data?.success) {
+      console.error(`Web3Forms rechazó el envío (status ${res.status}):`, data);
       return NextResponse.json(
         { success: false, message: "Web3Forms rechazó el envío." },
         { status: 502 },
