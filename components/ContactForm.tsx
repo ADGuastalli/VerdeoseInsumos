@@ -3,54 +3,58 @@
 import { FormEvent, useState } from "react";
 import Icon from "./Icon";
 
-// Formulario de contacto. Envía el mensaje por email a través de Web3Forms
-// (servicio gratuito, sin backend propio que mantener) directo a la casilla
-// configurada en https://web3forms.com con la access key de abajo.
-//
-// SETUP (una sola vez):
-// 1. Entrar a https://web3forms.com con agrocebolla@gmail.com
-// 2. Crear un "Access Key" gratis (queda asociado a ese mail: ahí llegan los envíos)
-// 3. Copiar la key y pegarla en .env.local como:
-//      NEXT_WEB3FORMS_KEY=tu-key-aca
-//    (y agregar la misma variable en Vercel/donde despliegues, en Settings > Environment Variables)
-
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const DESTINATION_EMAIL = "agrocebolla@gmail.com";
+// Formulario de contacto. Envía el mensaje a nuestra propia API route
+// (/api/contact), que del lado del servidor lo reenvía por email vía
+// Web3Forms a agrocebolla@gmail.com. La access key nunca viaja al navegador.
 
 type Status = "idle" | "sending" | "success" | "error";
+
+// Acepta espacios, guiones, paréntesis y un "+" inicial (ej: +54 9 291 415-0000),
+// pero exige entre 8 y 15 dígitos reales — suficiente para filtrar errores de
+// tipeo (letras, números incompletos) sin rechazar formatos válidos de AR.
+const PHONE_REGEX = /^\+?[\d\s()-]{8,20}$/;
+
+function validatePhone(value: string): string | null {
+  if (!value.trim()) return null; // el teléfono es opcional
+  const digitCount = value.replace(/\D/g, "").length;
+  if (!PHONE_REGEX.test(value) || digitCount < 8 || digitCount > 15) {
+    return "Revisá el número: debe tener solo dígitos (y opcionalmente +, espacios o guiones), entre 8 y 15 números.";
+  }
+  return null;
+}
 
 export default function ContactForm() {
   const [nombre, setNombre] = useState("");
   const [telefono, setTelefono] = useState("");
   const [mensaje, setMensaje] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const [phoneError, setPhoneError] = useState<string | null>(null);
+
+  function handlePhoneChange(value: string) {
+    setTelefono(value);
+    if (phoneError) setPhoneError(validatePhone(value));
+  }
+
+  function handlePhoneBlur() {
+    setPhoneError(validatePhone(telefono));
+  }
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-    if (!accessKey) {
-      // Falta configurar la access key — ver instrucciones arriba.
-      console.error("Falta NEXT_WEB3FORMS_KEY en las variables de entorno.");
-      setStatus("error");
+    const err = validatePhone(telefono);
+    if (err) {
+      setPhoneError(err);
       return;
     }
 
     setStatus("sending");
 
     try {
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: accessKey,
-          to: DESTINATION_EMAIL,
-          subject: "Consulta desde la web — Verdeos e Insumos",
-          from_name: nombre,
-          nombre,
-          telefono: telefono || "-",
-          mensaje,
-        }),
+        body: JSON.stringify({ nombre, telefono, mensaje }),
       });
 
       const data = await res.json();
@@ -99,10 +103,23 @@ export default function ContactForm() {
           type="tel"
           id="cf-phone"
           name="telefono"
-          placeholder="Tu teléfono"
+          placeholder="Ej: 291 415-0000"
           value={telefono}
-          onChange={(e) => setTelefono(e.target.value)}
+          onChange={(e) => handlePhoneChange(e.target.value)}
+          onBlur={handlePhoneBlur}
+          aria-invalid={phoneError ? "true" : "false"}
+          aria-describedby={phoneError ? "cf-phone-error" : undefined}
+          style={phoneError ? { borderColor: "#c0392b" } : undefined}
         />
+        {phoneError && (
+          <p
+            id="cf-phone-error"
+            className="form-note"
+            style={{ color: "#c0392b", marginTop: 6 }}
+          >
+            {phoneError}
+          </p>
+        )}
       </div>
       <div className="form-group">
         <label className="form-label" htmlFor="cf-msg">
