@@ -3,9 +3,26 @@
 import { FormEvent, useState } from "react";
 import Icon from "./Icon";
 
-// Formulario de contacto. Envía el mensaje a nuestra propia API route
-// (/api/contact), que del lado del servidor lo reenvía por email vía
-// Web3Forms a agrocebolla@gmail.com. La access key nunca viaja al navegador.
+// Formulario de contacto. Envía el mensaje DIRECTO desde el navegador a
+// Web3Forms, que lo reenvía por email a agrocebolla@gmail.com.
+//
+// Nota: probamos hacerlo vía una API route propia (servidor), pero Web3Forms
+// tiene protección de Cloudflare que bloquea pedidos servidor-a-servidor
+// (los de Vercel no pasan el challenge). El uso soportado y documentado por
+// Web3Forms es justamente este: llamar a su API directo desde el cliente con
+// la access key visible — está diseñada para eso, no es un secreto.
+//
+// SETUP (una sola vez):
+// 1. Entrar a https://web3forms.com con agrocebolla@gmail.com
+// 2. Crear un "Access Key" gratis (queda asociado a ese mail: ahí llegan los envíos)
+// 3. Confirmar el mail de verificación que manda Web3Forms a esa casilla
+// 4. Copiar la key y pegarla en Vercel (Project Settings > Environment
+//    Variables) como NEXT_PUBLIC_WEB3FORMS_KEY, y en .env.local para local.
+//    El prefijo NEXT_PUBLIC_ es obligatorio: sin él, Next.js no la expone en
+//    el navegador y el envío nunca va a funcionar.
+
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const DESTINATION_EMAIL = "agrocebolla@gmail.com";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -48,13 +65,30 @@ export default function ContactForm() {
       return;
     }
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      console.error(
+        "Falta NEXT_PUBLIC_WEB3FORMS_KEY en las variables de entorno.",
+      );
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nombre, telefono, mensaje }),
+        body: JSON.stringify({
+          access_key: accessKey,
+          to: DESTINATION_EMAIL,
+          subject: "Consulta desde la web — Verdeos e Insumos",
+          from_name: nombre,
+          nombre,
+          telefono: telefono || "-",
+          mensaje,
+        }),
       });
 
       const data = await res.json();
@@ -65,9 +99,11 @@ export default function ContactForm() {
         setTelefono("");
         setMensaje("");
       } else {
+        console.error("Web3Forms rechazó el envío:", data);
         setStatus("error");
       }
-    } catch {
+    } catch (err) {
+      console.error("Error enviando a Web3Forms:", err);
       setStatus("error");
     }
   }
