@@ -86,6 +86,7 @@ export default function Footer() {
           <span>
             Copyright © {year} {SITE.name}. Todos los derechos reservados.
           </span>
+          <Link href="/politica-de-privacidad">Política de Privacidad</Link>
         </div>
       </div>
     </footer>
